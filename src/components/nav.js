@@ -86,13 +86,6 @@ var ScrollNav = React.createClass({
         link: `#get-involved`
       }
     ];
-    if (/^(en)(\b|$)/.test(this.context.intl.locale)) {
-      links.splice(1, 0, {
-        text: `More Resources`,
-        item: `resources`,
-        link: `/resources`
-      });
-    }
     return (
       <SimpleNav activate={this.activate} active={this.state.active}
         links={links}

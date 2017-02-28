@@ -11,6 +11,9 @@ module.exports = React.createClass({
           <div className="form-description">
             {this.context.intl.formatMessage({id: 'main_description'})}
           </div>
+          <p>
+            {this.context.intl.formatMessage({id: 'second_description'})}
+          </p>
           <h4>
             {this.context.intl.formatMessage({id: 'question_1'})}
           </h4>
@@ -28,19 +31,6 @@ module.exports = React.createClass({
           </h4>
           <p>
             {this.context.intl.formatMessage({id: 'answer_3'})}
-          </p>
-          <h4>
-            {this.context.intl.formatMessage({id: 'copyright_matters'})}
-          </h4>
-          <div className="horizontal-rule"></div>
-          <h2>
-            {this.context.intl.formatMessage({id: 'now_what_title'})}
-          </h2>
-          <h4>
-            {this.context.intl.formatMessage({id: 'now_what_tagline'})}
-          </h4>
-          <p>
-            {this.context.intl.formatMessage({id: 'now_what_description'})}
           </p>
         </div>
       </div>

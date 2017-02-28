@@ -73,6 +73,9 @@ var Signup = React.createClass({
           <p>
             {this.context.intl.formatMessage({id: 'take_action_description'})}
           </p>
+          <p>
+            {this.context.intl.formatMessage({id: 'take_action_description_next'})}
+          </p>
           <input autoComplete="off" type='text' value={this.props.firstName} onChange={this.firstNameChange} placeholder={this.context.intl.formatMessage({id: 'first_name'})}/>
           <input autoComplete="off" type='text' value={this.props.lastName} onChange={this.lastNameChange} placeholder={this.context.intl.formatMessage({id: 'last_name'})}/>
           <input autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>

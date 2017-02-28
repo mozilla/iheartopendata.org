@@ -7,7 +7,7 @@ var signupRoutes = function(transaction, callback) {
     lang: transaction.locale,
     newsletters: 'mozilla-foundation',
     trigger_welcome: 'N',
-    source_url: 'https://changecopyright.org/',
+    source_url: 'https://iheartopendata.org/',
     email: transaction.email,
     country: transaction.country
   };
