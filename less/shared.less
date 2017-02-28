@@ -1,0 +1,83 @@
+html {
+  font-family: Arvo;
+  scroll-behavior: smooth;
+}
+
+* { box-sizing: border-box }
+
+.page {
+  background: #FFFFFF;
+}
+
+a {
+  color: inherit;
+}
+
+.nav-offset {
+  height: 65px;
+  margin-top: -65px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.error-message {
+  color: #FF0000;
+}
+
+.button {
+  height: 42px;
+  width: 100%;
+  cursor: pointer;
+  background: #17FFFF;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  font-family: inherit;
+
+  &.arrow {
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1.7rem;
+      height: 1.2rem;
+      font-size: 1rem;
+      background-image: url("/assets/images/icon-arrow-right.svg");
+      background-repeat: no-repeat;
+      background-position: 0.7rem 0.24rem;
+      transition: margin 0.3s;
+    }
+
+    &:hover {
+      background: #17FFFF;
+
+      &::after {
+        margin-left: 0.2rem;
+      }
+    }
+  }
+
+  &.submitting {
+    &::after {
+      content: '';
+      position: absolute;
+      animation: spin 1s linear infinite; /* CSS3 */
+      margin-top: -15px;
+      margin-left: -15px;
+      height: 20px;
+      width: 20px;
+      border: 5px solid #FFFFFF;
+      border-right: 5px solid #000000;
+      border-radius: 50%;
+    }
+  }
+}
+
+@keyframes spin { /* CSS3 */
+	0%   { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}

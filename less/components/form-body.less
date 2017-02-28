@@ -1,0 +1,43 @@
+.form-body-container {
+  vertical-align: top;
+  margin: 54px 0 54px 0;
+  .form-body {
+    width: 100%;
+    max-width: 992px;
+    padding: 0 15px 0 15px;
+    .horizontal-rule {
+      margin-top: 50px;
+      width: 68px;
+      height: 1px;
+      background: #17FFFF;
+    }
+    .form-description {
+      font-size: 20px;
+      line-height: 34px;
+      margin-bottom: 50px;
+      &::first-letter {
+        color: #17FFFF;
+        font-weight: 600;
+        float: left;
+        font-size: 108px;
+        margin-top: 8px;
+        margin-right: 12px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    margin: 0;
+    width: ~"calc(100% - 445px)";
+    border-right: 1px solid #CFCFCF;
+    .form-body {
+      margin: 64px auto 144px auto;
+      padding: 0 55px 0 55px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .form-body {
+      padding: 0 84px 0 84px;
+    }
+  }
+}
