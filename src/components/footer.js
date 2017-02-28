@@ -16,8 +16,8 @@ var Footer = React.createClass({
             <a href="#" className="footer-link share">
               {this.context.intl.formatMessage({id: 'share_this_page'})}
             </a>
-            <a href="https://twitter.com/Mozilla" className="footer-link conversation">
-              {this.context.intl.formatMessage({id: 'join_the_conversation'})}
+            <a href="https://twitter.com/Mozilla" className="footer-link follow">
+              {this.context.intl.formatMessage({id: 'follow'})}
             </a>
             <a href="https://www.mozilla.org/about/legal/terms/mozilla/" className="footer-link legal">
               {this.context.intl.formatMessage({id: 'legal'})}
