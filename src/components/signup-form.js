@@ -5,16 +5,16 @@ import { connect } from 'react-redux';
 import classnames from "classnames";
 
 var NOT_SUBMITTING = 0;
-var SIGNUP_SUBMITTING = 1;
+var PETITION_SUBMITTING = 2;
 
 var Signup = React.createClass({
-  mixins: [require('../mixins/basket.js')],
+  mixins: [require('../mixins/sheets.js')],
   contextTypes: {
     intl: React.PropTypes.object
   },
   getInitialState: function() {
     return {
-      signupError: "",
+      petitionError: "",
       submitting: NOT_SUBMITTING
     };
   },
@@ -42,7 +42,7 @@ var Signup = React.createClass({
     }
 
     if (valid) {
-      this.basket({
+      this.sheets({
         email: this.props.email,
         firstName: this.props.firstName,
         lastName: this.props.lastName,
@@ -55,7 +55,7 @@ var Signup = React.createClass({
       "invalid": !!this.props.emailError
     });
     var buttonClassName = classnames(`button`, {
-      "submitting": this.state.submitting === SIGNUP_SUBMITTING,
+      "submitting": this.state.submitting === PETITION_SUBMITTING,
       "arrow": this.state.submitting === NOT_SUBMITTING
     });
     var buttonText = this.context.intl.formatMessage({id: 'sign_up_button'});
@@ -112,7 +112,7 @@ var Signup = React.createClass({
             <option value="other" data-other="">Other</option>
           </select>
           <p className="error-message">{this.props.emailError}</p>
-          <p className="error-message">{this.state.signupError}</p>
+          <p className="error-message">{this.state.petitionError}</p>
           <p className="privacy-policy">
             <FormattedMessage
               id='sign_up_notice'

@@ -102,6 +102,29 @@ module.exports = function(options) {
           }
         }
       }
+    },{
+      method: 'POST',
+      path: '/api/petition/sheets',
+      handler: routes.sheets,
+      config: {
+        payload: {
+          maxBytes: 32000,
+          allow: 'application/json'
+        },
+        validate: {
+          payload: {
+            locale: Joi.string().min(2).max(12).required(),
+            email: Joi.string().email().required(),
+            firstName: Joi.string().allow(''),
+            lastName: Joi.string().allow(''),
+            country: Joi.string().allow('')
+          }
+        },
+        response: {
+          schema: {
+          }
+        }
+      }
     }, {
       method: 'GET',
       path: '/api/polyfill.js',
