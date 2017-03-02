@@ -15,8 +15,7 @@ var SignupMixin = {
       action: "Submitted the form",
       label: "Open Data"
     });
-    var page = '/' + this.context.intl.locale + location;
-    window.location = page;
+    window.location = location;
   },
   signupError: function(result) {
     this.setState({
@@ -33,7 +32,7 @@ var SignupMixin = {
     submit(url, props, success, error);
   },
   petitionSuccess: function(result) {
-    this.doPetitionSuccess(result, '/share/');
+    this.doPetitionSuccess(result, 'https://share.mozilla.org/352/179206');
   },
   sheets: function(props) {
     this.doPetition("/api/petition/sheets", props, this.petitionSuccess, this.petitionError);
@@ -44,8 +43,7 @@ var SignupMixin = {
       action: "Submitted the form",
       label: "Open Data"
     });
-    var page = '/' + this.context.intl.locale + location;
-    window.location = page;
+    window.location = location;
   },
   petitionError: function(result) {
     this.setState({
@@ -62,7 +60,7 @@ var SignupMixin = {
     submit(url, props, success, error);
   },
   signupSuccess: function(result) {
-    this.doSignupSuccess(result, '/share/');
+    this.doSignupSuccess(result, 'https://share.mozilla.org/352/179206');
   },
   basket: function(props) {
     this.doSignup("/api/signup/basket", props, this.signupSuccess, this.signupError);
