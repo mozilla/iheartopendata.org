@@ -29,7 +29,7 @@ var petitionRoutes = function(transaction, callback) {
     sqs.sendMessage({
       MessageBody: {
         app: "iheartopendata.org",
-        event_type: "opendataday-petition-signup"
+        event_type: "opendataday-petition-signup",
         timestamp: (new Date()).toISOString(),
         data: formData
       },
