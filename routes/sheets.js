@@ -13,7 +13,6 @@ var petitionRoutes = function(transaction, callback) {
     "entry.825163439": transaction.firstName,
     "entry.129687116": transaction.lastName,
     "entry.329351653": transaction.email,
-    "entry.581717539": transaction.country,
     "entry.1319525634": transaction.locale
   };
 

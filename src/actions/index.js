@@ -13,7 +13,3 @@ export function setFirstName(data) {
 export function setLastName(data) {
   return { type: 'SET_LAST_NAME', data };
 }
-
-export function setCountry(data) {
-  return { type: 'SET_COUNTRY', data };
-}

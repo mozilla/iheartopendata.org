@@ -86,8 +86,7 @@ module.exports = function(options) {
             locale: Joi.string().min(2).max(12).required(),
             email: Joi.string().email().required(),
             firstName: Joi.string().allow(''),
-            lastName: Joi.string().allow(''),
-            country: Joi.string().allow('')
+            lastName: Joi.string().allow('')
           }
         },
         response: {
@@ -97,8 +96,7 @@ module.exports = function(options) {
             newsletters: Joi.string().required(),
             trigger_welcome: Joi.any().valid('N').required(),
             source_url: Joi.any().valid('https://iheartopendata.org/').required(),
-            email: Joi.string().email().required(),
-            country: Joi.string().allow('')
+            email: Joi.string().email().required()
           }
         }
       }
@@ -116,8 +114,7 @@ module.exports = function(options) {
             locale: Joi.string().min(2).max(12).required(),
             email: Joi.string().email().required(),
             firstName: Joi.string().allow(''),
-            lastName: Joi.string().allow(''),
-            country: Joi.string().allow('')
+            lastName: Joi.string().allow('')
           }
         },
         response: {
