@@ -109,7 +109,7 @@ var Signup = React.createClass({
             <FormattedMessage
               id='sign_up_notice'
               values={{
-                linkPrivacyPolicy: (<a href="https://www.mozilla.org/privacy/">{this.context.intl.formatMessage({id: 'link_pp'})}</a>)
+                linkPrivacyPolicy: (<a href="https://www.mozilla.org/privacy/websites/">{this.context.intl.formatMessage({id: 'link_pp'})}</a>)
               }}
             />
           </label>
