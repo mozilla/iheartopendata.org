@@ -16,8 +16,7 @@ var createElement = React.createClass({
           email: this.props.email,
           emailError: ``,
           firstName: this.props.firstName,
-          lastName: this.props.lastName,
-          country: this.props.country
+          lastName: this.props.lastName
         }
       })}>
         <IntlProvider locale={this.props.locale} messages={this.props.messages}>

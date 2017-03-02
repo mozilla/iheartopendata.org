@@ -4,8 +4,7 @@ const initialState = {
   email: ``,
   emailError: ``,
   firstName: ``,
-  lastName: ``,
-  country: ``
+  lastName: ``
 };
 
 const signupApp = (state = initialState, action) => {
@@ -26,10 +25,6 @@ const signupApp = (state = initialState, action) => {
   case 'SET_LAST_NAME':
     return assign({}, state, {
       lastName: action.data
-    });
-  case 'SET_COUNTRY':
-    return assign({}, state, {
-      country: action.data
     });
   default:
     return state;
