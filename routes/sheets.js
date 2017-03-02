@@ -26,12 +26,12 @@ var petitionRoutes = function(transaction, callback) {
     });
   } else {
     sqs.sendMessage({
-      MessageBody: {
+      MessageBody: JSON.stringify({
         app: "iheartopendata.org",
         event_type: "opendataday-petition-signup",
         timestamp: (new Date()).toISOString(),
         data: formData
-      },
+      }),
       QueueUrl: process.env.SQS_QUEUE_URL
     }, function(err) {
       callback(err);
