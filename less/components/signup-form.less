@@ -2,7 +2,23 @@
   vertical-align: top;
   margin: 54px 0 54px 0;
   .signup-form {
-    padding: 0 15px 0 15px;
+    width: 70%;
+    min-width: 300px;
+    max-width: 992px;
+    margin: 0 auto;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  p {
+    font-size: 0.9375rem;
+    line-height: 1.4375rem;
+  }
+  .privacy-policy {
+    font-size: 0.75rem;
+    color: #9B9B9B;
+    margin: 20px 0;
   }
   input, select {
     width: 100%;
@@ -38,13 +54,18 @@
     width: 445px;
     margin: 0;
     .signup-form {
+      width: 100%;
       margin: 64px 0 144px 0;
       padding: 0 55px 0 55px;
     }
   }
   @media screen and (min-width: 1200px) {
     .signup-form {
+      width: 100%;
       padding: 0 84px 0 84px;
     }
+  }
+  @media screen and (min-width: 1800px) {
+    width: 645px;
   }
 }
