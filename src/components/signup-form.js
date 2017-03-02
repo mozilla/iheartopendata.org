@@ -8,7 +8,7 @@ var NOT_SUBMITTING = 0;
 var PETITION_SUBMITTING = 2;
 
 var Signup = React.createClass({
-  mixins: [require('../mixins/sheets.js')],
+  mixins: [require('../mixins/signup.js')],
   contextTypes: {
     intl: React.PropTypes.object
   },
@@ -75,7 +75,7 @@ var Signup = React.createClass({
 
     var signupCheckbox = null;
     if (!this.props.subscribed) {
-      signupCheckbox = (<label><input className="checkbox" autoComplete="off" onChange={this.signupCheckboxChange} checked={this.props.signupCheckbox} type="checkbox"></input>{this.context.intl.formatMessage({id: 'signup_checkbox'})}</label>);
+      signupCheckbox = (<label><input className="checkbox" autoComplete="off" onChange={this.signupCheckboxChange} value={this.props.signupCheckbox} type="checkbox"></input>{this.context.intl.formatMessage({id: 'signup_checkbox'})}</label>);
     }
 
     return (
