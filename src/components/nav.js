@@ -107,20 +107,6 @@ var SimpleNav = React.createClass({
           <div className="nav-logo-container">
             <a href="https://mozilla.org/" className="nav-logo"></a>
           </div>
-          {
-            this.props.links.map((linkObj, index) => {
-              return (
-                <MenuLink key={index}
-                  activate={activate}
-                  active={active}
-                  item={linkObj.item}
-                  href={linkObj.link}
-                >
-                  {linkObj.text}
-                </MenuLink>
-              );
-            })
-          }
         </div>
       </div>
     );
