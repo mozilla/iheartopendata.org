@@ -13,7 +13,7 @@ var SignupMixin = {
     reactGA.event({
       category: "Signup",
       action: "Submitted the form",
-      label: "copyright"
+      label: "Open Data"
     });
     var page = '/' + this.context.intl.locale + location;
     window.location = page;
