@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { setEmailError, setEmail, setFirstName, setLastName } from '../actions';
+import { setEmailError, setEmail, setFirstName, setLastName, setSignupCheckbox } from '../actions';
 import { connect } from 'react-redux';
 import classnames from "classnames";
 
@@ -27,6 +27,9 @@ var Signup = React.createClass({
   emailChange: function(e) {
     this.props.setEmail(e.target.value);
   },
+  signupCheckboxChange: function(e) {
+    this.props.setSignupCheckbox(e.target.checked);
+  },
   onSubmit: function() {
     var valid = true;
 
@@ -48,11 +51,13 @@ var Signup = React.createClass({
         firstName: this.props.firstName,
         lastName: this.props.lastName
       });
-      this.basket({
-        email: this.props.email,
-        firstName: this.props.firstName,
-        lastName: this.props.lastName
-      });
+      if (this.props.signupCheckbox) {
+        this.basket({
+          email: this.props.email,
+          firstName: this.props.firstName,
+          lastName: this.props.lastName
+        });
+      }
     }
   },
   render: function() {
@@ -86,6 +91,7 @@ var Signup = React.createClass({
           <input autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>
           <p className="error-message">{this.props.emailError}</p>
           <p className="error-message">{this.state.petitionError}</p>
+          <label><input className="checkbox" autoComplete="off" onChange={this.signupCheckboxChange} checked={this.props.signupCheckbox} type="checkbox"></input>{this.context.intl.formatMessage({id: 'signup_checkbox'})}</label>
           <p className="privacy-policy">
             <FormattedMessage
               id='sign_up_notice'
@@ -110,7 +116,8 @@ function(state) {
     email: state.signupForm.email,
     emailError: state.signupForm.emailError,
     firstName: state.signupForm.firstName,
-    lastName: state.signupForm.lastName
+    lastName: state.signupForm.lastName,
+    signupCheckbox: state.signupForm.signupCheckbox
   };
 },
 function(dispatch) {
@@ -126,6 +133,9 @@ function(dispatch) {
     },
     setLastName: function(data) {
       dispatch(setLastName(data));
+    },
+    setSignupCheckbox: function(data) {
+      dispatch(setSignupCheckbox(data));
     }
   };
 })(Signup);
