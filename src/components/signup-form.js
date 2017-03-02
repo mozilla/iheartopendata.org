@@ -57,7 +57,7 @@ var Signup = React.createClass({
       ga.event({
         category: "Signup",
         action: "Submitted the form",
-        label: "Copyright"
+        label: "OpenData"
       }); 
     }
   },
