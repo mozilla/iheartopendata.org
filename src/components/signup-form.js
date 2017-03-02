@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { setEmailError, setEmail, setFirstName, setLastName, setSignupCheckbox } from '../actions';
+import { setEmailError, setEmail, setFirstName, setLastName, setSignupCheckbox, setPrivacyCheckbox, setPrivacyCheckboxError } from '../actions';
 import { connect } from 'react-redux';
 import classnames from "classnames";
 
@@ -30,6 +30,9 @@ var Signup = React.createClass({
   signupCheckboxChange: function(e) {
     this.props.setSignupCheckbox(e.target.checked);
   },
+  privacyCheckboxChange: function(e) {
+    this.props.setPrivacyCheckbox(e.target.checked);
+  },
   onSubmit: function() {
     var valid = true;
 
@@ -43,6 +46,11 @@ var Signup = React.createClass({
     } else if (!this.emailInput.validity.valid) {
       valid = false;
       this.props.setEmailError(this.context.intl.formatMessage({id: "email_invalid"}));
+    }
+
+    if (!this.props.privacyCheckbox) {
+      valid = false;
+      this.props.setPrivacyCheckboxError(this.context.intl.formatMessage({id: "please_complete"}));
     }
 
     if (valid) {
@@ -95,17 +103,19 @@ var Signup = React.createClass({
           <input autoComplete="off" type='text' value={this.props.lastName} onChange={this.lastNameChange} placeholder={this.context.intl.formatMessage({id: 'last_name'})}/>
           <input autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>
           <p className="error-message">{this.props.emailError}</p>
-          <p className="error-message">{this.state.petitionError}</p>
           {signupCheckbox}
-          <p className="privacy-policy">
+          <br/>
+          <label>
+            <input className="checkbox" autoComplete="off" onChange={this.privacyCheckboxChange} value={this.props.privacyCheckbox} type="checkbox"></input>
             <FormattedMessage
               id='sign_up_notice'
               values={{
-                linkTerms: (<a href="https://www.mozilla.org/about/legal/terms/mozilla/">{this.context.intl.formatMessage({id: 'link_tos'})}</a>),
                 linkPrivacyPolicy: (<a href="https://www.mozilla.org/privacy/">{this.context.intl.formatMessage({id: 'link_pp'})}</a>)
               }}
             />
-          </p>
+          </label>
+          <p className="error-message">{this.props.privacyCheckboxError}</p>
+          <p className="error-message">{this.props.petitionError}</p>
           <button onClick={this.onSubmit} className={buttonClassName}>
             {buttonText}
           </button>
@@ -122,7 +132,9 @@ function(state) {
     emailError: state.signupForm.emailError,
     firstName: state.signupForm.firstName,
     lastName: state.signupForm.lastName,
-    signupCheckbox: state.signupForm.signupCheckbox
+    signupCheckbox: state.signupForm.signupCheckbox,
+    privacyCheckbox: state.signupForm.privacyCheckbox,
+    privacyCheckboxError: state.signupForm.privacyCheckboxError
   };
 },
 function(dispatch) {
@@ -141,6 +153,12 @@ function(dispatch) {
     },
     setSignupCheckbox: function(data) {
       dispatch(setSignupCheckbox(data));
+    },
+    setPrivacyCheckbox: function(data) {
+      dispatch(setPrivacyCheckbox(data));
+    },
+    setPrivacyCheckboxError: function(data) {
+      dispatch(setPrivacyCheckboxError(data));
     }
   };
 })(Signup);
