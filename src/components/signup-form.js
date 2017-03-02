@@ -48,6 +48,12 @@ var Signup = React.createClass({
         lastName: this.props.lastName,
         country: this.props.country
       });
+      this.basket({
+        email: this.props.email,
+        firstName: this.props.firstName,
+        lastName: this.props.lastName,
+        country: this.props.country
+      });
     }
   },
   render: function() {
