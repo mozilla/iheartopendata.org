@@ -14,7 +14,8 @@ module.exports = function(queryString, locale) {
     initialState: {
       firstName: queryString.firstName || "",
       lastName: queryString.lastName || "",
-      email: queryString.email || ""
+      email: queryString.email || "",
+      signupCheckbox: false
     },
     values: {
       test: test

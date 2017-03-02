@@ -3,6 +3,7 @@ import assign from 'object-assign';
 const initialState = {
   email: ``,
   emailError: ``,
+  signupCheckbox: false,
   firstName: ``,
   lastName: ``
 };
@@ -17,6 +18,10 @@ const signupApp = (state = initialState, action) => {
   case 'SET_EMAIL_ERROR':
     return assign({}, state, {
       emailError: action.data
+    });
+  case 'SET_SIGNUP_CHECKBOX':
+    return assign({}, state, {
+      signupCheckbox: action.data
     });
   case 'SET_FIRST_NAME':
     return assign({}, state, {

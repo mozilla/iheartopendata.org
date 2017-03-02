@@ -16,7 +16,8 @@ var createElement = React.createClass({
           email: this.props.email,
           emailError: ``,
           firstName: this.props.firstName,
-          lastName: this.props.lastName
+          lastName: this.props.lastName,
+          signupCheckbox: this.props.signupCheckbox
         }
       })}>
         <IntlProvider locale={this.props.locale} messages={this.props.messages}>
