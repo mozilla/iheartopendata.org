@@ -30,6 +30,10 @@ var Signup = React.createClass({
   onSubmit: function() {
     var valid = true;
 
+    if (this.state.submitting !== NOT_SUBMITTING) {
+      return;
+    }
+
     if (!this.props.email.trim()) {
       valid = false;
       this.props.setEmailError(this.context.intl.formatMessage({id: "please_complete"}));
