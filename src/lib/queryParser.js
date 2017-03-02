@@ -5,6 +5,11 @@ function isNumber(item) {
 module.exports = function(queryString, locale) {
   queryString = queryString || {};
   var test = queryString.test;
+  var subscribed = false;
+
+  if (queryString.subscribed === "1") {
+    subscribed = true;
+  }
 
   if (test && toString.call(test) === "[object Array]") {
     test = test.join(" ");
@@ -15,10 +20,11 @@ module.exports = function(queryString, locale) {
       firstName: queryString.firstName || "",
       lastName: queryString.lastName || "",
       email: queryString.email || "",
-      signupCheckbox: false
+      country: queryString.country || ""
     },
     values: {
-      test: test
+      test: test,
+      subscribed: subscribed
     }
   };
 };
