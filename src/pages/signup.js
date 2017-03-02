@@ -19,7 +19,7 @@ var Signup = React.createClass({
           <Header/>
           <div className="signup-container">
             <FormBody/>
-            <SignupForm/>
+            <SignupForm subscribed={this.props.subscribed}/>
           </div>
         </div>
         <Footer/>

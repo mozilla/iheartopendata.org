@@ -73,6 +73,11 @@ var Signup = React.createClass({
       buttonText = ``;
     }
 
+    var signupCheckbox = null;
+    if (!this.props.subscribed) {
+      signupCheckbox = (<label><input className="checkbox" autoComplete="off" onChange={this.signupCheckboxChange} checked={this.props.signupCheckbox} type="checkbox"></input>{this.context.intl.formatMessage({id: 'signup_checkbox'})}</label>);
+    }
+
     return (
       <div className="signup-form-container">
         <div id="get-involved" className="nav-anchor nav-offset"></div>
@@ -91,7 +96,7 @@ var Signup = React.createClass({
           <input autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>
           <p className="error-message">{this.props.emailError}</p>
           <p className="error-message">{this.state.petitionError}</p>
-          <label><input className="checkbox" autoComplete="off" onChange={this.signupCheckboxChange} checked={this.props.signupCheckbox} type="checkbox"></input>{this.context.intl.formatMessage({id: 'signup_checkbox'})}</label>
+          {signupCheckbox}
           <p className="privacy-policy">
             <FormattedMessage
               id='sign_up_notice'
