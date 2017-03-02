@@ -13,7 +13,7 @@ var Footer = React.createClass({
             <a href="https://www.mozilla.org/contact/" className="footer-link contact">
               {this.context.intl.formatMessage({id: 'contact_us'})}
             </a>
-            <a href="#" className="footer-link share">
+            <a href="https://share.mozilla.org/352/179206" className="footer-link share">
               {this.context.intl.formatMessage({id: 'share_this_page'})}
             </a>
             <a href="https://twitter.com/Mozilla" className="footer-link follow">

@@ -104,7 +104,6 @@ var Signup = React.createClass({
           <input autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>
           <p className="error-message">{this.props.emailError}</p>
           {signupCheckbox}
-          <br/>
           <label>
             <input className="checkbox" autoComplete="off" onChange={this.privacyCheckboxChange} value={this.props.privacyCheckbox} type="checkbox"></input>
             <FormattedMessage
@@ -114,7 +113,7 @@ var Signup = React.createClass({
               }}
             />
           </label>
-          <p className="error-message">{this.props.privacyCheckboxError}</p>
+          <p className="privacy-error error-message">{this.props.privacyCheckboxError}</p>
           <p className="error-message">{this.props.petitionError}</p>
           <button onClick={this.onSubmit} className={buttonClassName}>
             {buttonText}
