@@ -1,7 +1,10 @@
 .header {
   border-bottom: solid 1px #CFCFCF;
   .header-image {
-    height: ~"calc(100vh - 98px)";
+    height: ~"calc(100vh - 280px)";
+    @media screen and (min-width: 400px) {
+      height: ~"calc(100vh - 310px)";
+    }
     background-image: url("/assets/images/header.jpg");
     background-size: cover;
     background-position: center center;
@@ -25,11 +28,17 @@
       }
     }
   }
+  .get-involved {
+    display: none;
+  }
   @media screen and (min-width: 992px) {
     height: ~"calc(100vh - 98px)";
     min-height: 500px;
     display: flex;
     flex-direction: row-reverse;
+    .get-involved {
+      display: block;
+    }
     .header-content,
     .header-image {
       width: 50%;

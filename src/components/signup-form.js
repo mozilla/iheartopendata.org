@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { setEmailError, setEmail, setFirstName, setLastName, setSignupCheckbox, setPrivacyCheckbox, setPrivacyCheckboxError } from '../actions';
 import { connect } from 'react-redux';
 import classnames from "classnames";
+import StickyContainer from './sticky-container.js';
 
 var NOT_SUBMITTING = 0;
 var PETITION_SUBMITTING = 2;
@@ -68,6 +69,12 @@ var Signup = React.createClass({
       }
     }
   },
+  getPosition: function() {
+    if (!this.stickyContainer) {
+      return 0;
+    }
+    return this.stickyContainer.getClientRects()[0].top + this.stickyContent.offsetHeight + window.scrollY - window.innerHeight;
+  },
   render: function() {
     var emailClassName = classnames({
       "invalid": !!this.props.emailError
@@ -99,6 +106,15 @@ var Signup = React.createClass({
           <p>
             {this.context.intl.formatMessage({id: 'take_action_description_next'})}
           </p>
+          <div ref={(element) => { this.stickyContainer = element; }}>
+            <StickyContainer className="sticky-container" stickyTo={this.getPosition}>
+              <div className="sticky-content" ref={(element) => { this.stickyContent = element; }}>
+                <a className="get-involved button arrow" href="#get-involved">
+                  {this.context.intl.formatMessage({id: 'get_involved_button'})}
+                </a>
+              </div>
+            </StickyContainer>
+          </div>
           <input autoComplete="off" type='text' value={this.props.firstName} onChange={this.firstNameChange} placeholder={this.context.intl.formatMessage({id: 'first_name'})}/>
           <input autoComplete="off" type='text' value={this.props.lastName} onChange={this.lastNameChange} placeholder={this.context.intl.formatMessage({id: 'last_name'})}/>
           <input autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>
