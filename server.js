@@ -96,7 +96,9 @@ module.exports = function(options) {
             newsletters: Joi.string().required(),
             trigger_welcome: Joi.any().valid('N').required(),
             source_url: Joi.any().valid('https://iheartopendata.org/').required(),
-            email: Joi.string().email().required()
+            email: Joi.string().email().required(),
+            first_name: Joi.string().allow(''),
+            last_name: Joi.string().allow('')
           }
         }
       }
