@@ -58,15 +58,9 @@ var Signup = React.createClass({
       this.sheets({
         email: this.props.email,
         firstName: this.props.firstName,
-        lastName: this.props.lastName
+        lastName: this.props.lastName,
+        signup: this.props.signupCheckbox
       });
-      if (this.props.signupCheckbox) {
-        this.basket({
-          email: this.props.email,
-          firstName: this.props.firstName,
-          lastName: this.props.lastName
-        });
-      }
     }
   },
   getPosition: function() {

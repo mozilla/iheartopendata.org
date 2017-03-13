@@ -1,5 +1,6 @@
 var hatchet = require("hatchet");
 var request = require("request");
+var signup = require("./signup.js");
 
 var petitionRoutes = function(transaction, callback) {
   callback = callback || function() {};
@@ -10,7 +11,24 @@ var petitionRoutes = function(transaction, callback) {
     "entry.1319525634": transaction.locale
   };
 
-  hatchet.send("opendataday-petition-signup", formData, function(err) {
+  var promises = [];
+
+  promises.push(new Promise((resolve, reject) => {
+    hatchet.send("opendataday-petition-signup", formData, function(err) {
+      resolve(err);
+    });
+  }));
+
+  if (transaction.signup) {
+    promises.push(new Promise((resolve, reject) => {
+      signup(transaction, function(err) {
+        resolve(err);
+      });
+    }));
+  }
+
+  Promise.all(promises).then((errors) => {
+    var err = errors[0] || errors[1];
     callback(err);
   });
 };
