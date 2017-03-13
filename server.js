@@ -116,7 +116,8 @@ module.exports = function(options) {
             locale: Joi.string().min(2).max(12).required(),
             email: Joi.string().email().required(),
             firstName: Joi.string().allow(''),
-            lastName: Joi.string().allow('')
+            lastName: Joi.string().allow(''),
+            signup: Joi.boolean()
           }
         },
         response: {
