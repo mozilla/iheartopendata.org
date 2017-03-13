@@ -8,7 +8,9 @@ var signupRoutes = function(transaction, callback) {
     newsletters: 'mozilla-foundation',
     trigger_welcome: 'N',
     source_url: 'https://iheartopendata.org/',
-    email: transaction.email
+    email: transaction.email,
+    first_name: transaction.firstName,
+    last_name: transaction.lastName
   };
 
   hatchet.send("send_post_request", {
